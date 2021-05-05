@@ -25,7 +25,14 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj": {
+                "projectPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj"
+              },
+              "/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/PizzaBox.Storing.csproj": {
+                "projectPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/PizzaBox.Storing.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -51,6 +58,114 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj",
+        "projectName": "PizzaBox.Domain",
+        "projectPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj",
+        "packagesPath": "/home/marc/.nuget/packages/",
+        "outputPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/marc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/PizzaBox.Storing.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/PizzaBox.Storing.csproj",
+        "projectName": "PizzaBox.Storing",
+        "projectPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/PizzaBox.Storing.csproj",
+        "packagesPath": "/home/marc/.nuget/packages/",
+        "outputPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/marc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj": {
+                "projectPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

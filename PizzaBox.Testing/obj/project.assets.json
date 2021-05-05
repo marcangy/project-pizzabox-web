@@ -1648,6 +1648,29 @@
         "build": {
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "PizzaBox.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/PizzaBox.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PizzaBox.Domain.dll": {}
+        }
+      },
+      "PizzaBox.Storing/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "PizzaBox.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PizzaBox.Storing.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PizzaBox.Storing.dll": {}
+        }
       }
     }
   },
@@ -5611,11 +5634,23 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "PizzaBox.Domain/1.0.0": {
+      "type": "project",
+      "path": "../PizzaBox.Domain/PizzaBox.Domain.csproj",
+      "msbuildProject": "../PizzaBox.Domain/PizzaBox.Domain.csproj"
+    },
+    "PizzaBox.Storing/1.0.0": {
+      "type": "project",
+      "path": "../PizzaBox.Storing/PizzaBox.Storing.csproj",
+      "msbuildProject": "../PizzaBox.Storing/PizzaBox.Storing.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.NET.Test.Sdk >= 16.7.1",
+      "PizzaBox.Domain >= 1.0.0",
+      "PizzaBox.Storing >= 1.0.0",
       "coverlet.collector >= 1.3.0",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
@@ -5645,7 +5680,14 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj": {
+              "projectPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/PizzaBox.Domain.csproj"
+            },
+            "/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/PizzaBox.Storing.csproj": {
+              "projectPath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/PizzaBox.Storing.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

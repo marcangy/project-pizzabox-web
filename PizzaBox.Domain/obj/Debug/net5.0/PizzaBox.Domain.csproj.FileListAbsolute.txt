@@ -1,0 +1,12 @@
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/bin/Debug/net5.0/PizzaBox.Domain.deps.json
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/bin/Debug/net5.0/PizzaBox.Domain.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/bin/Debug/net5.0/ref/PizzaBox.Domain.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/bin/Debug/net5.0/PizzaBox.Domain.pdb
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.csprojAssemblyReference.cache
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.AssemblyInfoInputs.cache
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.AssemblyInfo.cs
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.csproj.CoreCompileInputs.cache
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/Debug/net5.0/ref/PizzaBox.Domain.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Domain/obj/Debug/net5.0/PizzaBox.Domain.pdb
