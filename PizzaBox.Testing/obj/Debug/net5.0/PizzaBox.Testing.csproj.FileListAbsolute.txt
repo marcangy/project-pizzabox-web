@@ -118,3 +118,4 @@
 /home/marc/revature/project_pizzabox_web/PizzaBox.Testing/bin/Debug/net5.0/Npgsql.dll
 /home/marc/revature/project_pizzabox_web/PizzaBox.Testing/bin/Debug/net5.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /home/marc/revature/project_pizzabox_web/PizzaBox.Testing/bin/Debug/net5.0/Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Testing/bin/Debug/net5.0/CoverletSourceRootsMapping
