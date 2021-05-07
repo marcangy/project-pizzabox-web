@@ -1,11 +1,20 @@
 using PizzaBox.Domain.Interfaces;
 using System.Collections.Generic;
 using PizzaBox.Domain.Models;
+using System;
+
 namespace PizzaBox.Storing.Repositories
 {
   public class ToppingRepository : IRepository<Topping>
   {
-    public IEnumerable<Topping> Select()
+
+    //public delegate bool ToppingDelegate(Topping topping);
+    private readonly PizzaBoxContext _context;
+    public ToppingRepository(PizzaBoxContext context)
+    {
+      _context = context;
+    }
+    public IEnumerable<Topping> Select(Func<Topping, bool> filter)
     {
       return new List<Topping> { new Topping(), new Topping() };
     }
@@ -22,5 +31,7 @@ namespace PizzaBox.Storing.Repositories
     {
       throw new System.NotImplementedException();
     }
+
+
   }
 }

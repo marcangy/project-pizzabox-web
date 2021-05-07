@@ -1,21 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Client.Models;
+using PizzaBox.Storing;
 
 namespace PizzaBox.Client.Controllers
 {
   [Route("[Controller]")]
   public class OrderController : Controller
   {
+
+    private readonly UnitOfWork _unitOfWork;
+
+    public OrderController(UnitOfWork unitOfWork)
+    {
+      _unitOfWork = unitOfWork;
+    }
+
     [HttpGet]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public string Order(OrderViewModel order)
+    public IActionResult Order(OrderViewModel order)
     {
       if (ModelState.IsValid)
       {
-        return order.SelectedCrust;
+        return View("checkout");
       }
-      return "Please select an Order";
+      order.Load(_unitOfWork);
+      return View("order", order);
     }
 
 

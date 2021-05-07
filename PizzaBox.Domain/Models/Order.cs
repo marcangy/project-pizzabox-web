@@ -1,12 +1,8 @@
-namespace PizzaBox.Domain.Models
+using PizzaBox.Domain.Abstracts;
+
+public class Order : AOrder
 {
 
-  public class Order
-  {
-    public Order()
-    {
 
-    }
-  }
 
 }

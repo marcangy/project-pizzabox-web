@@ -11,31 +11,28 @@ using PizzaBox.Client.Models;
 
 namespace PizzaBox.Client.Controllers
 {
+  [Route("[controller]")]
   public class HomeController : Controller
   {
     private readonly ILogger<HomeController> _logger;
 
     private readonly UnitOfWork _unitOfWork;
 
+
     public HomeController(UnitOfWork unitOfWork)
     {
       _unitOfWork = unitOfWork;
-    }
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-      _logger = logger;
     }
 
     [HttpGet]
     public IActionResult Index()
     {
       //var OrderViewModel = new OrderViewModel();
-      ViewBag.Customer = new CustomerViewModel();
       //ViewData
       //TempData
-
-      return View("index", new OrderViewModel(_unitOfWork));
+      var order = new OrderViewModel();
+      order.Load(_unitOfWork);
+      return View("index", order);
     }
 
     public IActionResult Privacy()

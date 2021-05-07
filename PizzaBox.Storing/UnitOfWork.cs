@@ -8,11 +8,18 @@ namespace PizzaBox.Storing
     public SizeRepository Sizes { get; }
     public ToppingRepository Toppings { get; }
 
-    public UnitOfWork()
+    private PizzaBoxContext _context { get; }
+
+    public UnitOfWork(PizzaBoxContext context)
     {
-      Crusts = new CrustRepository();
-      Sizes = new SizeRepository();
-      Toppings = new ToppingRepository();
+      _context = context;
+      Crusts = new CrustRepository(_context);
+      Sizes = new SizeRepository(_context);
+      Toppings = new ToppingRepository(_context);
+    }
+    public void Save()
+    {
+      _context.SaveChanges();
     }
   }
 }

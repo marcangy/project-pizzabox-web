@@ -1,13 +1,20 @@
 using PizzaBox.Domain.Interfaces;
 using System.Collections.Generic;
 using PizzaBox.Domain.Models;
+using System;
+
 namespace PizzaBox.Storing.Repositories
 {
   public class SizeRepository : IRepository<Size>
   {
-    public IEnumerable<Size> Select()
+    private readonly PizzaBoxContext _context;
+    public SizeRepository(PizzaBoxContext context)
     {
-      return new List<Size>{new Size(), new Size()};
+      _context = context;
+    }
+    public IEnumerable<Size> Select(Func<Size, bool> filter)
+    {
+      return new List<Size> { new Size(), new Size() };
     }
     public bool Insert()
     {
@@ -22,5 +29,8 @@ namespace PizzaBox.Storing.Repositories
     {
       throw new System.NotImplementedException();
     }
+
+
+
   }
 }

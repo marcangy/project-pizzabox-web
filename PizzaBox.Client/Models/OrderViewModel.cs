@@ -10,9 +10,9 @@ namespace PizzaBox.Client.Models
 {
   public class OrderViewModel : IValidatableObject
   {
-    public List<Crust> Crusts { get; set; } = new List<Crust>();
-    public List<Size> Sizes { get; set; } = new List<Size>();
-    public List<Topping> Toppings { get; set; } = new List<Topping>();
+    public List<Crust> Crusts { get; set; }
+    public List<Size> Sizes { get; set; }
+    public List<Topping> Toppings { get; set; }
 
 
     [Required(ErrorMessage = "selected crust")]
@@ -26,12 +26,11 @@ namespace PizzaBox.Client.Models
     [Required(ErrorMessage = "selected topping")]
     public List<string> SelectedToppings { get; set; }
 
-
-    public OrderViewModel(UnitOfWork unitOfWork)
+    public void Load(UnitOfWork unitOfWork)
     {
-      Crusts = unitOfWork.Crusts.Select().ToList();
-      Sizes = unitOfWork.Sizes.Select().ToList();
-      Toppings = unitOfWork.Toppings.Select().ToList();
+      Crusts = unitOfWork.Crusts.Select(c => c.EntityID > 0).ToList();
+      Sizes = unitOfWork.Sizes.Select(c => c.EntityID > 0).ToList();
+      Toppings = unitOfWork.Toppings.Select(c => c.EntityID > 0).ToList();
 
     }
 
