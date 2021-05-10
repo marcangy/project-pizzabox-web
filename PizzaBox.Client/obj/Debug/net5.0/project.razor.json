@@ -15649,6 +15649,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Client/Views/Shared/ModifyPizza.cshtml",
+      "TargetPath": "Views\\Shared\\ModifyPizza.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/marc/revature/project_pizzabox_web/PizzaBox.Client/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"

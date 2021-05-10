@@ -1,2 +1,16 @@
 <h2>Order Received</h2>
+
 <a asp-controller="home">Go Back</a>
+@foreach (var item in ViewBag.Order.Pizzas)
+{
+  <p>@item.Name</p>
+  <p>@item.Size</p>
+  <p>@item.Crust</p>
+
+  foreach (var topping in item.Toppings)
+  {
+    <p>@topping</p>
+  }
+}
+
+<a asp-controller="order" asp-action="modify">Modify Order</a>

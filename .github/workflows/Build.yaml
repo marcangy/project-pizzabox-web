@@ -6,6 +6,31 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
+  test:
+    runs-on: ubuntu-20.04 
+    steps:
+      - uses: actions/checkout@v2
+      - run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -p:CoverletOutput='test_coverage/' --logger=trx
+  
+  analyze:
+    needs:
+      -build
+      -test
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-20.04
+      steps:
+        -uses: actions/checkout@v2
+        -run: dotnet tool install -g dotnet-sonarscanner
+        -run: dotnet sonarscanner begin /k:"marcangy_project-pizzabox-web" /o:"marcangy" /d:sonar.login="$SONAR_TOKEN" /d:sonar.host.url="https://sonarcloud.io/"
+        -run: dotnet build
+        -run: dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
+
+  build:
+    runs-on: ubuntu-20.04
+      steps:
+        - run: dotnet build
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
@@ -14,7 +39,7 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@client-branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

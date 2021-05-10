@@ -17,7 +17,7 @@ namespace PizzaBox.Domain.Abstracts
     public Size Size { get; set; }
     public Crust Crust { get; set; }
     public double TotalPrice { get; set; }
-    public virtual ICollection<AOrder> Orders { get; set; }
+    public virtual List<AOrder> Orders { get; set; }
 
     public APizza()
     {

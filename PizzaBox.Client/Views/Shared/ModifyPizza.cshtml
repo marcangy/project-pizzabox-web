@@ -1,0 +1,90 @@
+@{
+  ViewData["Title"] = "Modify Pizza";
+}
+@model PizzaBox.Client.Models.OrderViewModel
+@addTagHelper *, Microsoft.aspnetcore.Mvc.Taghelpers
+
+<div class="text-center">
+  <h1 class="display-4">Welcome</h1>
+  <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaBox</title>
+
+</head>
+
+
+<body>
+
+
+  <main></main>
+
+
+</body>
+
+</html>
+
+
+@foreach (var item in Model.CurrentOrder.Pizzas)
+{
+  <label for="@item">@item<input type="radio" name="@item" id="@item" value="@item"></label>
+}
+
+<button> Select</button>
+
+<form action="order/order" method="post">
+  @Html.AntiForgeryToken();
+  <div>
+
+
+
+
+
+
+    <div>
+      @foreach (var item in Model.Crusts)
+      {
+        <label asp-for="@item"> @item<input type="radio" asp-for="SelectedCrust" value="@item"></label>
+      }
+      @Html.ValidationMessageFor(m => m.SelectedCrust)
+    </div>
+    <div>
+      @foreach (var item in Model.Sizes)
+      {
+        <label asp-for="@item">@item<input type="radio" asp-for="SelectedSize" value="@item"></label>
+
+      }
+      @Html.ValidationMessageFor(m => m.SelectedSize)
+    </div>
+
+    <div>
+      @foreach (var item in Model.Toppings)
+      {
+        <label for="@item">@item<input type="checkbox" name="SelectedToppings" id="@item" value="@item"></label>
+
+
+      }
+      @Html.ValidationMessageFor(m => m.SelectedToppings)
+    </div>
+    <button type="submit">Add Changes to Order</button>
+  </div>
+
+  @* <a>Please Select Pizza you would like to Modify </a>
+
+    @foreach (var item in ViewBag.Pizzas)
+    {
+
+    <label asp-for="@item"> @item<input type="radio" asp-for="SelectedPizza" value="@item"></label>
+
+    } *@
+
+</form>
+
+@*Tag Helper Way*@

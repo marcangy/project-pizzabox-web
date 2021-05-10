@@ -47,6 +47,7 @@ namespace PizzaBox.Storing
       builder.Entity<APizza>().HasMany<Topping>(p => p.Toppings).WithMany(t => t.pizzas);
 
 
+
       builder.Entity<Crust>().HasKey(e => e.EntityID);
       builder.Entity<Crust>().HasMany<APizza>().WithOne(p => p.Crust);
 
@@ -73,19 +74,28 @@ namespace PizzaBox.Storing
 
       builder.Entity<Size>().HasData(new[]
       {
-        new Size() { EntityID = 1, Name = "Small" },
-        new Size() { EntityID = 2, Name = "Medium" },
-        new Size() { EntityID = 3, Name = "Large"}
+        new Size() { EntityID = 1, Name = "Small", Price =7.5 },
+        new Size() { EntityID = 2, Name = "Medium", Price =9.5},
+        new Size() { EntityID = 3, Name = "Large", Price = 11.5}
       });
 
       builder.Entity<Topping>().HasData(new[]
       {
-        new Topping() { EntityID = 1, Name = "Pepperoni" },
-        new Topping() { EntityID = 2, Name = "Pineapple" },
+
+        new Topping() { EntityID = 1, Name = "Cheese" },
+        new Topping() { EntityID = 2, Name = "Bacon" },
         new Topping() { EntityID = 3, Name = "Ham" },
-        new Topping() { EntityID = 4, Name = "Cheese" },
-        new Topping() { EntityID = 5, Name = "Black olives" }
+        new Topping() { EntityID = 4, Name = "Mushroom" },
+        new Topping() { EntityID = 5, Name = "Beef" },
+        new Topping() { EntityID = 6, Name = "Spinach" },
+        new Topping() { EntityID = 7, Name = "Pepperoni" },
+        new Topping() { EntityID = 8, Name = "Olives" },
+        new Topping() { EntityID = 9, Name = "Sauce" }
+
       });
+
+
+
 
     }
   }

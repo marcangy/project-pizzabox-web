@@ -60,6 +60,7 @@ namespace PizzaBox.Client
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
+
       });
     }
   }

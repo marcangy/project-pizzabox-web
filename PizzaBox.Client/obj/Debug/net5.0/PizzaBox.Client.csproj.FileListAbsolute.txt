@@ -56,3 +56,4 @@
 /home/marc/revature/project_pizzabox_web/PizzaBox.Client/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
 /home/marc/revature/project_pizzabox_web/PizzaBox.Client/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.Design.dll
 /home/marc/revature/project_pizzabox_web/PizzaBox.Client/bin/Debug/net5.0/Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Client/obj/Debug/net5.0/Razor/Views/Shared/ModifyPizza.cshtml.g.cs

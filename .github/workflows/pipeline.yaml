@@ -10,5 +10,4 @@ name: ci-pipeline
 on: push
 
   #github to sonarclub
-  #test xunit + coverlet
   #connect project to sonarclub

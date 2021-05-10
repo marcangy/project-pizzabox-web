@@ -1,22 +1,26 @@
 using PizzaBox.Domain.Interfaces;
-using System.Collections.Generic;
 using PizzaBox.Domain.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PizzaBox.Storing.Repositories
 {
   public class ToppingRepository : IRepository<Topping>
   {
 
-    //public delegate bool ToppingDelegate(Topping topping);
+    private const string _path = @"data/toppings.xml";
+    private static FileRepository _filerepository = new FileRepository();
+    public List<Topping> ListTopping { get; set; }
     private readonly PizzaBoxContext _context;
     public ToppingRepository(PizzaBoxContext context)
     {
+      ListTopping = _filerepository.ReadFromFile<List<Topping>>(_path);
       _context = context;
     }
     public IEnumerable<Topping> Select(Func<Topping, bool> filter)
     {
-      return new List<Topping> { new Topping(), new Topping() };
+      return _context.Toppings.Where(filter);
     }
     public bool Insert()
     {

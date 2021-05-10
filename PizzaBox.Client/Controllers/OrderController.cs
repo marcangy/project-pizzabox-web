@@ -1,12 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Client.Models;
+using PizzaBox.Client.Singleton;
+using PizzaBox.Domain.Abstracts;
+using PizzaBox.Domain.Models;
 using PizzaBox.Storing;
 
 namespace PizzaBox.Client.Controllers
 {
-  [Route("[Controller]")]
+  [Route("[Controller]/[Action]")]
   public class OrderController : Controller
   {
+
+    private static readonly OrderSingleton _orderSingleton = OrderSingleton.Instance;
 
     private readonly UnitOfWork _unitOfWork;
 
@@ -17,15 +24,29 @@ namespace PizzaBox.Client.Controllers
 
     [HttpGet]
     [HttpPost]
-    [ValidateAntiForgeryToken]
+    //[ValidateAntiForgeryToken]
     public IActionResult Order(OrderViewModel order)
     {
       if (ModelState.IsValid)
       {
+
+        order = order.Assign(order, _unitOfWork);
+
+        _unitOfWork.Save();
+        ViewBag.Order = order.CurrentOrder;
+
         return View("checkout");
       }
       order.Load(_unitOfWork);
-      return View("order", order);
+      return View("Order", order);
+    }
+
+    [HttpGet]
+    [HttpPost]
+    public IActionResult Modify(OrderViewModel order)
+    {
+      order.Load(_unitOfWork);
+      return View("ModifyPizza", order);
     }
 
 
