@@ -48,14 +48,37 @@ namespace PizzaBox.Client.Models
 
     public void Load(UnitOfWork unitOfWork)
     {
-      Crusts = unitOfWork.Crusts.ListCrust;
-      Sizes = unitOfWork.Sizes.ListSize;
-      Toppings = unitOfWork.Toppings.ListTopping;
-      Pizzas = unitOfWork.Pizzas.ListPizzas;
+
+      Crusts = new List<Crust>();
+      Crusts.Add(unitOfWork.Crusts.Select(c => c.Name == "Original").First());
+      Crusts.Add(unitOfWork.Crusts.Select(c => c.Name == "Stuffed").First());
+      Crusts.Add(unitOfWork.Crusts.Select(c => c.Name == "Thin").First());
+
+      Sizes = new List<Size>();
+      Sizes.Add(unitOfWork.Sizes.Select(c => c.Name == "Small").First());
+      Sizes.Add(unitOfWork.Sizes.Select(c => c.Name == "Medium").First());
+      Sizes.Add(unitOfWork.Sizes.Select(c => c.Name == "Large").First());
+
+      Toppings = new List<Topping>();
+      Toppings.Add(unitOfWork.Toppings.Select(s => s.Name == "Cheese").First());
+      Toppings.Add(unitOfWork.Toppings.Select(s => s.Name == "Bacon").First());
+      Toppings.Add(unitOfWork.Toppings.Select(s => s.Name == "Ham").First());
+      Toppings.Add(unitOfWork.Toppings.Select(s => s.Name == "Mushroom").First());
+      Toppings.Add(unitOfWork.Toppings.Select(s => s.Name == "Beef").First());
+      Toppings.Add(unitOfWork.Toppings.Select(s => s.Name == "Spinach").First());
+      Toppings.Add(unitOfWork.Toppings.Select(s => s.Name == "Pepperoni").First());
+      Toppings.Add(unitOfWork.Toppings.Select(s => s.Name == "Olives").First());
+
+      Pizzas = new List<APizza>();
+      Pizzas.Add(unitOfWork.Pizzas.Select(c => c.Name == "Custom Pizza").First());
+      Pizzas.Add(unitOfWork.Pizzas.Select(c => c.Name == "Meat Lover's Pizza").First());
+      Pizzas.Add(unitOfWork.Pizzas.Select(c => c.Name == "Veggie Pizza").First());
+      Pizzas.Add(unitOfWork.Pizzas.Select(c => c.Name == "Cheese Pizza").First());
+
+
       Customers = unitOfWork.Customers.Select(c => !string.IsNullOrWhiteSpace(c.Name)).ToList();
       Stores = unitOfWork.Stores.Select(s => !string.IsNullOrWhiteSpace(s.Name)).ToList();
       ListOfPizzas = Pizzas.Select(p => new SelectListItem { Text = p.Name, Value = p.Name }).ToList();
-
 
     }
 

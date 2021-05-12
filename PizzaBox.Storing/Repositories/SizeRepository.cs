@@ -15,8 +15,8 @@ namespace PizzaBox.Storing.Repositories
     private readonly PizzaBoxContext _context;
     public SizeRepository(PizzaBoxContext context)
     {
-      //ListSize = _filerepository.ReadFromFile<List<Size>>(_path);
       _context = context;
+
     }
     public IEnumerable<Size> Select(Func<Size, bool> filter)
     {

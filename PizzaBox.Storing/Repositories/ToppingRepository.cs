@@ -8,15 +8,13 @@ namespace PizzaBox.Storing.Repositories
 {
   public class ToppingRepository : IRepository<Topping>
   {
-
-    private const string _path = @"data/toppings.xml";
-    private static FileRepository _filerepository = new FileRepository();
     public List<Topping> ListTopping { get; set; }
     private readonly PizzaBoxContext _context;
     public ToppingRepository(PizzaBoxContext context)
     {
       //ListTopping = _filerepository.ReadFromFile<List<Topping>>(_path);
       _context = context;
+
     }
     public IEnumerable<Topping> Select(Func<Topping, bool> filter)
     {
