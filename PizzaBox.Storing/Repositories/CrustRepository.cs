@@ -18,7 +18,7 @@ namespace PizzaBox.Storing.Repositories
     }
     public CrustRepository(PizzaBoxContext context)
     {
-      ListCrust = _filerepository.ReadFromFile<List<Crust>>(_path);
+      //ListCrust = _filerepository.ReadFromFile<List<Crust>>(_path);
       _context = context;
     }
 

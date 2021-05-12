@@ -15,7 +15,7 @@ namespace PizzaBox.Storing.Repositories
     private readonly PizzaBoxContext _context;
     public ToppingRepository(PizzaBoxContext context)
     {
-      ListTopping = _filerepository.ReadFromFile<List<Topping>>(_path);
+      //ListTopping = _filerepository.ReadFromFile<List<Topping>>(_path);
       _context = context;
     }
     public IEnumerable<Topping> Select(Func<Topping, bool> filter)

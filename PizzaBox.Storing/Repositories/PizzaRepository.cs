@@ -17,7 +17,7 @@ namespace PizzaBox.Storing.Repositories
     public PizzaRepository(PizzaBoxContext context)
     {
       _context = context;
-      ListPizzas = _filerepository.ReadFromFile<List<APizza>>(_path);
+      //ListPizzas = _filerepository.ReadFromFile<List<APizza>>(_path);
 
     }
     public IEnumerable<APizza> Select(Func<APizza, bool> filter)
