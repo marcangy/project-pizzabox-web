@@ -450,3 +450,4 @@ $RECYCLE.BIN/
 # Project Specific
 out/
 *.trx
+/home/marc/revature/project_pizzabox_web/PizzaBox.Client/bin/
