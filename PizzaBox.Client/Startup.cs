@@ -28,13 +28,22 @@ namespace PizzaBox.Client
       services.AddControllersWithViews();
       services.AddScoped<UnitOfWork>();
       services.AddDbContext<PizzaBoxContext>(options =>
-      {
-        options.UseSqlServer(Configuration.GetConnectionString("mssql"), opts =>
-        {
-          opts.EnableRetryOnFailure(3);
-        });
-
-      });
+            {
+              if (!string.IsNullOrWhiteSpace(Configuration.GetConnectionString("mssql")))
+              {
+                options.UseSqlServer(Configuration.GetConnectionString("mssql"), opts =>
+                {
+                  opts.EnableRetryOnFailure(3);
+                });
+              }
+              else
+              {
+                options.UseNpgsql(Configuration.GetConnectionString("pgsql"), opts =>
+                {
+                  opts.EnableRetryOnFailure(3);
+                });
+              }
+            });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
