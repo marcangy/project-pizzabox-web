@@ -1,8 +1,11 @@
 using PizzaBox.Domain.Abstracts;
-
-public class RegOrder : AOrder
+namespace PizzaBox.Domain.Models
 {
+  public class RegOrder : AOrder
+  {
 
 
+
+  }
 
 }
