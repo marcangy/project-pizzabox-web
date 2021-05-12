@@ -11,7 +11,7 @@ using PizzaBox.Client.Models;
 
 namespace PizzaBox.Client.Controllers
 {
-  [Route("[controller]")]
+  [Route("[Controller]/[Action]")]
   public class HomeController : Controller
   {
     private readonly ILogger<HomeController> _logger;
@@ -24,7 +24,6 @@ namespace PizzaBox.Client.Controllers
       _unitOfWork = unitOfWork;
     }
 
-    [HttpGet]
     public IActionResult Index()
     {
 
