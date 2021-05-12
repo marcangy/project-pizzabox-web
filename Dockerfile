@@ -8,5 +8,5 @@ RUN dotnet publish --configuration Debug -o out PizzaBox.Client
 FROM mcr.microsoft.com/dotnet/aspnet
 
 WORKDIR /run
-COPY --from=base app/out .
-CMD ["dotnet", "PizzaBox.Client.dll"]
+COPY --from=base /app/out .
+CMD [ "dotnet", "PizzaBox.Client.dll" ]
