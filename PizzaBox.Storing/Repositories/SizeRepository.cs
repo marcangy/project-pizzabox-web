@@ -22,7 +22,7 @@ namespace PizzaBox.Storing.Repositories
     {
       return _context.Sizes.Where(filter);
     }
-    public bool Insert()
+    public bool Insert(Size item)
     {
       throw new System.NotImplementedException();
     }

@@ -16,14 +16,15 @@ namespace PizzaBox.Storing.Repositories
     private readonly PizzaBoxContext _context;
     public PizzaRepository(PizzaBoxContext context)
     {
-      ListPizzas = _filerepository.ReadFromFile<List<APizza>>(_path);
       _context = context;
+      ListPizzas = _filerepository.ReadFromFile<List<APizza>>(_path);
+
     }
     public IEnumerable<APizza> Select(Func<APizza, bool> filter)
     {
       return _context.Pizzas.Where(filter);
     }
-    public bool Insert()
+    public bool Insert(APizza item)
     {
       throw new System.NotImplementedException();
     }

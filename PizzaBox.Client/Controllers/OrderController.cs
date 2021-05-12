@@ -31,7 +31,7 @@ namespace PizzaBox.Client.Controllers
       {
 
         order = order.Assign(order, _unitOfWork);
-
+        _unitOfWork.Orders.Insert(order.CurrentOrder);
         _unitOfWork.Save();
         ViewBag.Order = order.CurrentOrder;
 

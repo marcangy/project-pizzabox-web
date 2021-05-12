@@ -22,7 +22,7 @@ namespace PizzaBox.Storing.Repositories
       _context = context;
     }
 
-    public bool Insert()
+    public bool Insert(Crust item)
     {
       throw new System.NotImplementedException();
     }

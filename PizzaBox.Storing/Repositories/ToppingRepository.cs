@@ -22,7 +22,7 @@ namespace PizzaBox.Storing.Repositories
     {
       return _context.Toppings.Where(filter);
     }
-    public bool Insert()
+    public bool Insert(Topping item)
     {
       throw new System.NotImplementedException();
     }

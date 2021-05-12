@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace PizzaBox.Storing.Migrations
 {
-    public partial class initialcommit : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,9 +11,9 @@ namespace PizzaBox.Storing.Migrations
                 columns: table => new
                 {
                     EntityID = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    Price = table.Column<double>(type: "double precision", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,9 +25,9 @@ namespace PizzaBox.Storing.Migrations
                 columns: table => new
                 {
                     EntityID = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    Discriminator = table.Column<string>(type: "text", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,9 +39,9 @@ namespace PizzaBox.Storing.Migrations
                 columns: table => new
                 {
                     EntityID = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    Price = table.Column<double>(type: "double precision", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,9 +53,9 @@ namespace PizzaBox.Storing.Migrations
                 columns: table => new
                 {
                     EntityID = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    Discriminator = table.Column<string>(type: "text", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,9 +67,9 @@ namespace PizzaBox.Storing.Migrations
                 columns: table => new
                 {
                     EntityID = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    Price = table.Column<double>(type: "double precision", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,12 +81,12 @@ namespace PizzaBox.Storing.Migrations
                 columns: table => new
                 {
                     EntityID = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SizeEntityID = table.Column<long>(type: "bigint", nullable: true),
                     CrustEntityID = table.Column<long>(type: "bigint", nullable: true),
-                    TotalPrice = table.Column<double>(type: "double precision", nullable: false),
-                    Discriminator = table.Column<string>(type: "text", nullable: false)
+                    TotalPrice = table.Column<double>(type: "float", nullable: false),
+                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -111,12 +110,12 @@ namespace PizzaBox.Storing.Migrations
                 columns: table => new
                 {
                     EntityID = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ID = table.Column<int>(type: "integer", nullable: false),
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ID = table.Column<int>(type: "int", nullable: false),
                     StoreEntityID = table.Column<long>(type: "bigint", nullable: true),
                     CustomerEntityID = table.Column<long>(type: "bigint", nullable: true),
                     ACustomerEntityID = table.Column<long>(type: "bigint", nullable: true),
-                    Discriminator = table.Column<string>(type: "text", nullable: false)
+                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,17 +189,53 @@ namespace PizzaBox.Storing.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Crusts",
+                columns: new[] { "EntityID", "Name", "Price" },
+                values: new object[,]
+                {
+                    { 1L, "Original", 0.0 },
+                    { 2L, "Stuffed", 0.0 },
+                    { 3L, "Thin", 0.0 }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "EntityID", "Discriminator", "Name" },
                 values: new object[] { 1L, "RegCustomer", "Samual Adams" });
+
+            migrationBuilder.InsertData(
+                table: "Sizes",
+                columns: new[] { "EntityID", "Name", "Price" },
+                values: new object[,]
+                {
+                    { 3L, "Large", 11.5 },
+                    { 2L, "Medium", 9.5 },
+                    { 1L, "Small", 7.5 }
+                });
 
             migrationBuilder.InsertData(
                 table: "Stores",
                 columns: new[] { "EntityID", "Discriminator", "Name" },
                 values: new object[,]
                 {
-                    { 1L, "NewYorkStore", "Da Best NY Pizza" },
-                    { 2L, "ChicagoStore", "Chitown Pizzeria" }
+                    { 2L, "ChicagoStore", "Chitown Pizzeria" },
+                    { 1L, "NewYorkStore", "Da Best NY Pizza" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Toppings",
+                columns: new[] { "EntityID", "Name", "Price" },
+                values: new object[,]
+                {
+                    { 8L, "Olives", 1.5 },
+                    { 1L, "Cheese", 1.5 },
+                    { 2L, "Bacon", 1.5 },
+                    { 3L, "Ham", 1.5 },
+                    { 4L, "Mushroom", 1.5 },
+                    { 5L, "Beef", 1.5 },
+                    { 6L, "Spinach", 1.5 },
+                    { 7L, "Pepperoni", 1.5 },
+                    { 9L, "Sauce", 1.5 }
                 });
 
             migrationBuilder.CreateIndex(

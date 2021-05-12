@@ -1,6 +1,9 @@
 <h2>Order Received</h2>
 
 <a asp-controller="home">Go Back</a>
+<p>Store Name: @ViewBag.Order.Store.Name</p>
+<p>Customer Name: @ViewBag.Order.Customer.Name</p>
+
 @foreach (var item in ViewBag.Order.Pizzas)
 {
   <p>@item.Name</p>

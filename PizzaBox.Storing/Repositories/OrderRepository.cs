@@ -18,9 +18,10 @@ namespace PizzaBox.Storing.Repositories
     {
       return _context.Orders.Where(filter);
     }
-    public bool Insert()
+    public bool Insert(AOrder item)
     {
-      throw new System.NotImplementedException();
+      _context.Orders.Add(item);
+      return true;
     }
 
     public AOrder Update()

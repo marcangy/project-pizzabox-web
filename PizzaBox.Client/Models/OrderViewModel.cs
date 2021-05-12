@@ -14,6 +14,8 @@ namespace PizzaBox.Client.Models
   {
 
 
+    public List<ACustomer> Customers { get; set; }
+    public List<AStore> Stores { get; set; }
     public List<Crust> Crusts { get; set; }
     public List<Size> Sizes { get; set; }
     public List<Topping> Toppings { get; set; }
@@ -35,6 +37,13 @@ namespace PizzaBox.Client.Models
 
     [Required(ErrorMessage = "selected topping")]
     public List<string> SelectedToppings { get; set; }
+
+    [Required(ErrorMessage = "selected customer")]
+    public string SelectedCustomer { get; set; }
+
+    [Required(ErrorMessage = "selected store")]
+    public string SelectedStore { get; set; }
+
     public RegOrder CurrentOrder { get; set; } = new RegOrder { Pizzas = new List<APizza> { } };
 
     public void Load(UnitOfWork unitOfWork)
@@ -43,6 +52,8 @@ namespace PizzaBox.Client.Models
       Sizes = unitOfWork.Sizes.ListSize;
       Toppings = unitOfWork.Toppings.ListTopping;
       Pizzas = unitOfWork.Pizzas.ListPizzas;
+      Customers = unitOfWork.Customers.Select(c => !string.IsNullOrWhiteSpace(c.Name)).ToList();
+      Stores = unitOfWork.Stores.Select(s => !string.IsNullOrWhiteSpace(s.Name)).ToList();
       ListOfPizzas = Pizzas.Select(p => new SelectListItem { Text = p.Name, Value = p.Name }).ToList();
 
 
@@ -50,6 +61,8 @@ namespace PizzaBox.Client.Models
 
     public OrderViewModel Assign(OrderViewModel order, UnitOfWork unitOfWork)
     {
+      order.CurrentOrder.Customer = unitOfWork.Customers.Select(c => c.Name == order.SelectedCustomer).First();
+      order.CurrentOrder.Store = unitOfWork.Stores.Select(s => s.Name == order.SelectedStore).First();
       var chosenPizza = unitOfWork.Pizzas.Select(p => p.Name == order.SelectedPizza).First();
       if (chosenPizza.Name == "Custom Pizza")
       {
@@ -68,6 +81,8 @@ namespace PizzaBox.Client.Models
       }
       return order;
     }
+
+
 
 
 

@@ -53,9 +53,29 @@
       <option value="">Choose Pizza</option>
     </select>
   </div>
+  <div>
 
+
+    @foreach (var item in Model.Stores)
+    {
+      <label asp-for="@item"> @item<input type="radio" asp-for="SelectedStore" value="@item"></label>
+    }
+    @Html.ValidationMessageFor(m => m.SelectedStore)
+  </div>
 
   <div>
+
+
+    @foreach (var item in Model.Customers)
+    {
+      <label asp-for="@item"> @item<input type="radio" asp-for="SelectedCustomer" value="@item"></label>
+    }
+    @Html.ValidationMessageFor(m => m.SelectedStore)
+  </div>
+
+  <div>
+
+
     @foreach (var item in Model.Crusts)
     {
       <label asp-for="@item"> @item<input type="radio" asp-for="SelectedCrust" value="@item"></label>
