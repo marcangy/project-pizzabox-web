@@ -1,0 +1,36 @@
+@{
+  ViewData["Title"] = "Customer Login Page";
+}
+@model PizzaBox.Client.Models.CustomerViewModel
+@addTagHelper *, Microsoft.aspnetcore.Mvc.Taghelpers
+
+<div class="text-center">
+  <h1 class="display-4">Welcome</h1>
+  <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaBox</title>
+
+</head>
+
+
+<body>
+
+
+  <main></main>
+  <form asp-controller="Customer" method="post">
+    <label asp-for="SelectedName"> </label>
+    <input type="text" asp-for="@Model.SelectedName" value="SelectedName">
+
+  </form>
+
+</body>
+
+</html>

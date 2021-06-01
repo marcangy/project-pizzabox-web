@@ -1,0 +1,111 @@
+@{
+  ViewData["Title"] = "Order";
+}
+@model PizzaBox.Client.Models.OrderViewModel
+@addTagHelper *, Microsoft.aspnetcore.Mvc.Taghelpers
+
+<div class="text-center">
+  <h1 class="display-4">Welcome</h1>
+  <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaBox</title>
+
+</head>
+
+
+<body>
+
+
+  <main></main>
+
+
+</body>
+
+</html>
+
+@*HTML HELPER WAY*@
+
+@* @using (Html.BeginForm("", "order", null, FormMethod.Post))
+  {
+  @foreach (var item in Model.Sizes)
+  {
+  @Html.LabelFor(m => m.SelectedSize)
+  @Html.RadioButtonFor(m => m.SelectedSize, @item)
+  }
+  } *@
+
+@*HTML Way*@
+<form action="order" method="post">
+  @Html.AntiForgeryToken();
+
+
+  <div>
+    <label asp-for="SelectedPizza"></label>
+    <select asp-for="SelectedPizza" asp-items="Model.ListOfPizzas">
+      <option value="">Choose Pizza</option>
+    </select>
+  </div>
+  <div>
+
+
+    @foreach (var item in Model.Stores)
+    {
+      <label asp-for="@item"> @item<input type="radio" asp-for="SelectedStore" value="@item"></label>
+    }
+    @Html.ValidationMessageFor(m => m.SelectedStore)
+  </div>
+
+  <div>
+
+
+    @foreach (var item in Model.Customers)
+    {
+      <label asp-for="@item"> @item<input type="radio" asp-for="SelectedCustomer" value="@item"></label>
+    }
+    @Html.ValidationMessageFor(m => m.SelectedStore)
+  </div>
+
+  <div>
+
+
+    @foreach (var item in Model.Crusts)
+    {
+      <label asp-for="@item"> @item<input type="radio" asp-for="SelectedCrust" value="@item"></label>
+    }
+    @Html.ValidationMessageFor(m => m.SelectedCrust)
+  </div>
+  <div>
+    @foreach (var item in Model.Sizes)
+    {
+      <label asp-for="@item">@item<input type="radio" asp-for="SelectedSize" value="@item"></label>
+
+    }
+    @Html.ValidationMessageFor(m => m.SelectedSize)
+  </div>
+
+  <div>
+    @foreach (var item in Model.Toppings)
+    {
+      <label for="@item">@item<input type="checkbox" name="SelectedToppings" id="@item" value="@item"></label>
+
+
+    }
+    @Html.ValidationMessageFor(m => m.SelectedToppings)
+  </div>
+  <button type="submit">Add to Order</button>
+</form>
+
+<form action="order/modify" method="post">
+  </div>
+  <button type="submit">Modify Order</button>
+</form>
+
+@*Tag Helper Way*@

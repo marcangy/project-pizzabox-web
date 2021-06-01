@@ -1,0 +1,15 @@
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/bin/Debug/net5.0/PizzaBox.Storing.deps.json
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/bin/Debug/net5.0/PizzaBox.Storing.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/bin/Debug/net5.0/ref/PizzaBox.Storing.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/bin/Debug/net5.0/PizzaBox.Storing.pdb
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/bin/Debug/net5.0/PizzaBox.Domain.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/bin/Debug/net5.0/PizzaBox.Domain.pdb
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/PizzaBox.Storing.csprojAssemblyReference.cache
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/PizzaBox.Storing.GeneratedMSBuildEditorConfig.editorconfig
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/PizzaBox.Storing.AssemblyInfoInputs.cache
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/PizzaBox.Storing.AssemblyInfo.cs
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/PizzaBox.Storing.csproj.CoreCompileInputs.cache
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/PizzaBox.Storing.csproj.CopyComplete
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/PizzaBox.Storing.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/ref/PizzaBox.Storing.dll
+/home/marc/revature/project_pizzabox_web/PizzaBox.Storing/obj/Debug/net5.0/PizzaBox.Storing.pdb

@@ -1,0 +1,69 @@
+# name: Build
+# on:
+#   push:
+#     branches:
+#       - client-branch
+#   pull_request:
+#     types: [opened, synchronize, reopened]
+# jobs:
+#   test:
+#     runs-on: ubuntu-20.04 
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -p:CoverletOutput='test_coverage/' --logger=trx
+  
+#   analyze:
+#     needs:
+#       -build
+#       -test
+#     env:
+#       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     runs-on: ubuntu-20.04
+#       steps:
+#         -uses: actions/checkout@v2
+#         -run: dotnet tool install -g dotnet-sonarscanner
+#         -run: dotnet sonarscanner begin /k:"marcangy_project-pizzabox-web" /o:"marcangy" /d:sonar.login="$SONAR_TOKEN" /d:sonar.host.url="https://sonarcloud.io/"
+#         -run: dotnet build
+#         -run: dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
+
+#   build:
+#     runs-on: ubuntu-20.04
+#       steps:
+#         - run: dotnet build
+#   sonarcloud:
+#     name: SonarCloud
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+#       - name: SonarCloud Scan
+#         uses: SonarSource/sonarcloud-github-action@client-branch
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+#   package:
+#     env:
+#       $DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
+#       $DOCKER_USER: ${{secrets.DOCKER_USER}}
+#     need:
+#       -analyze
+#       runs-on: ununtu-20.04
+#       steps:
+#           -uses: actions/checkout@v2
+#           -run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
+#           -run: docker image build -f Dockerfile -t pizzabox .
+#           -run: docker image tag pizzabox marcangyrevature/pizzabox
+#           -run: docker push marcangyrevature/pizzabox
+#           -run: docker logout
+
+#   deploy:
+#     need:
+#       -package
+#       steps:
+#         -uses: actions/webapps-deploy@v2
+#           with:
+#             app-name: pizzabox7977
+#             images: marcangycange/pizzabox
